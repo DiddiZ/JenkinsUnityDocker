@@ -5,6 +5,8 @@ FROM jenkins
 # and copy this file to an appropriately named directory 
 ENV UNITY_VERSION 5.5.3f1+20170404_amd64
 
+USER root
+
 RUN apt-get update && apt-get install -y \
       gconf-service \
       lib32gcc1 \
@@ -51,3 +53,5 @@ RUN apt-get update && apt-get install -y \
 ADD http://download.unity3d.com/download_unity/linux/unity-editor-$UNITY_VERSION.deb .
 RUN dpkg -i unity-editor-$UNITY_VERSION.deb
 RUN rm unity-editor-$UNITY_VERSION.deb
+
+USER jenkins
