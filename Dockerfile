@@ -3,7 +3,6 @@ FROM jenkins
 # alter this when you need to bump the Unity version. Pick a version from
 # http://forum.unity3d.com/threads/unity-on-linux-release-notes-and-known-issues.350256/
 # and copy this file to an appropriately named directory 
-ENV UNITY_VERSION 5.5.3f1+20170404_amd64
 
 USER root
 
@@ -50,8 +49,7 @@ RUN apt-get update && apt-get install -y \
       libpq5 \
       xvfb
 
-ADD http://download.unity3d.com/download_unity/linux/unity-editor-$UNITY_VERSION.deb .
-RUN dpkg -i unity-editor-$UNITY_VERSION.deb
-RUN rm unity-editor-$UNITY_VERSION.deb
+ADD http://beta.unity3d.com/download/e06241adb51f/unity-editor_amd64-5.5.2xf1Linux.deb .
+RUN dpkg -i unity-editor_amd64-5.5.2xf1Linux.deb && rm unity-editor_amd64-5.5.2xf1Linux.deb
 
 USER jenkins
