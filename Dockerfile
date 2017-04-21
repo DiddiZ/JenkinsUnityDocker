@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y \
       libpq5 \
       xvfb
 
-ADD http://beta.unity3d.com/download/e06241adb51f/unity-editor_amd64-5.5.2xf1Linux.deb .
-RUN dpkg -i unity-editor_amd64-5.5.2xf1Linux.deb && rm unity-editor_amd64-5.5.2xf1Linux.deb
+ADD http://beta.unity3d.com/download/8bc04e1c171e/unity-editor_amd64-5.6.0xf3Linux.deb .
+RUN dpkg -i unity-editor_amd64-5.6.0xf3Linux.deb && rm unity-editor_amd64-5.6.0xf3Linux.deb
 
 USER jenkins
