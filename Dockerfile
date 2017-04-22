@@ -6,7 +6,8 @@ FROM jenkins
 
 USER root
 
-RUN apt-get update && apt-get install -y \
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+	apt-get update && apt-get install -y \
       gconf-service \
       lib32gcc1 \
       lib32stdc++6 \
@@ -47,7 +48,9 @@ RUN apt-get update && apt-get install -y \
       xdg-utils \
       lsb-release \
       libpq5 \
-      xvfb
+      xvfb \
+      git-lfs && \
+	git lfs install
 
 ADD http://beta.unity3d.com/download/8bc04e1c171e/unity-editor_amd64-5.6.0xf3Linux.deb .
 RUN dpkg -i unity-editor_amd64-5.6.0xf3Linux.deb && rm unity-editor_amd64-5.6.0xf3Linux.deb
